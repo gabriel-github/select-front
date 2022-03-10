@@ -12,6 +12,7 @@ import {
 
 import { useState } from "react";
 import { api } from "../services/api";
+import { AppChart } from "./Chart";
 
 interface User {
   id: string;
@@ -88,18 +89,23 @@ export function UserSelect({ user }: UserProps) {
           Enviar
         </Button>
       </Box>
-      <FormControl fullWidth className={classes.select}>
+      <FormControl fullWidth className={classes.select} variant="outlined">
         <InputLabel id="demo-simple-select-label">valores</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Age"
+          defaultValue=""
         >
           {userState.information.map((info) => (
-            <MenuItem value={info}>{info}</MenuItem>
+            <MenuItem value={info} key={info}>
+              {info}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
+
+      <AppChart data={userState.information} />
     </Box>
   );
 }

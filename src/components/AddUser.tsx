@@ -25,7 +25,7 @@ export function AddUser({ addNewUser }: AddUserProps) {
       <Grid item xs={9}>
         <TextField
           id="outlined-basic"
-          label="Outlined"
+          label="Name"
           variant="outlined"
           fullWidth
           value={name}
